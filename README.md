@@ -1,4 +1,4 @@
-# Kafka-based system that produces and consumes order messages (Python) — Assignment
+# Kafka-based system that produces and consumes order messages (Python) - Assignment
 ### Reg No: EG/2020/4323
 
 ## What this implements
