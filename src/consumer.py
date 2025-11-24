@@ -4,6 +4,7 @@ from io import BytesIO
 import json
 import time
 import os
+import random
 
 BOOTSTRAP = "localhost:9092"
 SOURCE_TOPIC = "orders"
@@ -73,6 +74,11 @@ def main(schema_path):
             while attempt < MAX_RETRIES and not success:
                 try:
                     order = deserialize_avro(schema, raw)
+
+                    # simulate random failure (40% of messages fail)
+                    if random.random() < 0.4:
+                        raise ValueError("Simulated processing error")
+
                     price = float(order["price"])
                     running_sum += price
                     count += 1
